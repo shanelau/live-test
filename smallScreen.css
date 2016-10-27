@@ -1,0 +1,11 @@
+.video-js {
+    width:100%;
+    height: -moz-calc(width * 56.25%);
+    height: -webkit-calc(width * 56.25%);
+    height: -o-calc(width * 56.25%);
+    height: calc(width * 56.25%);
+}
+.schedule {
+    display: block;
+    width:100%;
+}
