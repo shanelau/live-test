@@ -5,16 +5,73 @@
   <meta name="keywords" content="魅族直播"><meta name="description" content="魅族直播">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <link rel='stylesheet prefetch' href='./video-js.css'>
-  <link rel='stylesheet prefetch' href='./up-videojs.css'>
   <script src='./videojs-ie8.min.js'></script>
   <script src='./video-min.js'></script>
   <script src="./videojs-contrib-hls.min.js"></script>
   <script>videojs.options.flash.swf = "./video-js.swf"</script>
-  <style>.vjs-polyzor-skin .vjs-big-play-button {color: #fff;top: 45%;}
-  .vjs-polyzor-skin .vjs-big-play-button:hover {color: #fff;}
-/*video::-webkit-media-controls-start-playback-button {display: none !important}
-video::-webkit-media-controls{display:none !important;}*/
-</style>
+  <style>
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin:0;
+      padding:0;
+    }
+
+    body {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      background: #d9d9d9;
+    }
+
+    video {
+      box-shadow: 0px 0px 43px -3px #474747;
+    }
+
+    h1 {
+      font-weight: 100;
+      color: gray;
+    }
+    .video-js{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .video-js .vjs-progress-control {
+      visibility: hidden;
+    }
+    .vjs-remaining-time {
+      display: none;
+    }
+    .video-js .vjs-big-play-button {
+      -webkit-transition: all .3s ease !important;
+      transition: all .3s ease !important;
+      /* Align center */
+      left: 50%;
+      top: 50%;
+      margin-left: -0.5em;
+      margin-top: -0.5em;
+    }
+    .video-js .vjs-big-play-button:hover {
+      color: #fff;
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+    }
+  </style>
   <script>
   function _get(name, url) {
       if (!url) url = window.location.href;
@@ -46,7 +103,7 @@ video::-webkit-media-controls{display:none !important;}*/
 
 <script>
       if(_get('play-button-color')){
-        var css = '.vjs-polyzor-skin .vjs-big-play-button {color: #'+_get('play-button-color')+';top: '+(_get('play-button-top')?_get('play-button-top'):'50')+'%;}.vjs-polyzor-skin .vjs-big-play-button:hover {color: #'+_get('play-button-color')+';}',
+        var css = '.vjs-default-skin .vjs-big-play-button {color: #'+_get('play-button-color')+';top: '+(_get('play-button-top')?_get('play-button-top'):'50')+'%;}.vjs-default-skin .vjs-big-play-button:hover {color: #'+_get('play-button-color')+';}',
         head = document.head || document.getElementsByTagName('head')[0],
         style = document.createElement('style');
 
@@ -58,7 +115,7 @@ video::-webkit-media-controls{display:none !important;}*/
         }
         head.appendChild(style);
       }
-      var s = '<video id="my-video" class="video-js vjs-polyzor-skin" webkit-playsinline preload="auto" width="640" height="480" controls '+(_get('poster')!=null?'poster="'+_get('poster')+'" ':'')+'data-setup="">';
+      var s = '<video id="my-video" class="video-js vjs-default-skin" webkit-playsinline preload="auto" width="640" height="480" controls '+(_get('poster')!=null?'poster="'+_get('poster')+'" ':'')+'data-setup="">';
 
       if(rtmp_url!=null)s += '<source src="'+rtmp_url+'" type="rtmp/flv">';
       if(hls_url!=null)s += '<source src="'+hls_url+'" type="application/x-mpegURL">';
@@ -69,10 +126,10 @@ video::-webkit-media-controls{display:none !important;}*/
       document.getElementsByTagName('body')[0].innerHTML = s;
 
       var player = videojs("my-video", { 
-        techOrder: ["flash","html5"], 
+        techOrder: ["flash", "html5"],
         autoplay: true,
         timeDivider: false,
-        controlBar:  {progressControl: false}
+        //controlBar:  {progressControl: false}
         }
       );
       // player.removeChild('ProgressControl');

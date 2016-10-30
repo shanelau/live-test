@@ -1,0 +1,29 @@
+{
+  "name": "live-test",
+  "version": "1.0.0",
+  "description": "video by videojs  [doc](http://docs.videojs.com/)",
+  "main": "inline.js",
+  "dependencies": {
+    "gulp-tmtsprite": "0.0.22",
+    "videojs": "^1.0.0",
+    "videojs-contrib-hls": "^3.6.6",
+    "videojs-resolution-switcher": "^0.4.2",
+    "yo": "^1.8.5"
+  },
+  "devDependencies": {
+    "generator-workflow": "^1.4.3"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shanelau/live-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shanelau/live-test/issues"
+  },
+  "homepage": "https://github.com/shanelau/live-test#readme"
+}

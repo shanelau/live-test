@@ -1,44 +1,123 @@
-<html><head><meta charset="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-<title>魅族 11 月 3 日 PRO 新品沟通会</title>
-<meta name="keywords" content="又拍云直播加速服务"><meta name="description" content="又拍云直播加速服务 - 秒级直播">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<style>body{margin:8% 0;padding:0;text-align:center}
-body{background: #99bae5 url(bg.jpg) no-repeat fixed center bottom;background-size: 200%;}
-/*video::-webkit-media-controls-start-playback-button {display: none !important}video::-webkit-media-controls{display:none !important;}*/
-.player{width:710px;height:400px;}div.player{height:28px}
-.schedule{width:710px;}
-@media (max-width: 460px) {
-::-webkit-scrollbar {width:0;height: 0;background-color:rgba(0,0,0,0)} html{overflow: scroll;overflow-x: hidden;}::-webkit-scrollbar {width:0px;background: transparent;}::-webkit-scrollbar-thumb {background: #000;}
-}
-@media (min-width: 560px) and (max-width: 760px) {
-  body{margin:0;background:none;}
-  .schedule{display:none;}
-  .player{width:100%;height:100%;}
-  div.player{display:none;}
-}
-#tbg{position:absolute;top:0;width:100%;height:100%;
-background: url(logo-new-toggle@2x_52c2068.png) no-repeat fixed 20px 20px;background-size: 12em;z-index:-1;}
-</style>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>魅族 11 月 3 日 PRO 新品沟通会</title>
+    <meta name="keywords" content="又拍云直播加速服务">
+    <meta name="description" content="又拍云直播加速服务 - 秒级直播">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <style>body {
+        margin: 8% 0;
+        padding: 0;
+        text-align: center
+    }
+
+    body {
+        background: #99bae5 url(bg.jpg) no-repeat fixed center bottom;
+        background-size: 200%;
+    }
+
+    /*video::-webkit-media-controls-start-playback-button {display: none !important}video::-webkit-media-controls{display:none !important;}*/
+    .player {
+        width: 710px;
+        height: 400px;
+    }
+
+    div.player {
+        height: 28px
+    }
+
+    .schedule {
+        width: 710px;
+    }
+
+    @media (max-width: 460px) {
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 0;
+            background-color: rgba(0, 0, 0, 0)
+        }
+
+        html {
+            overflow: scroll;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+        }
+    }
+
+    @media (min-width: 560px) and (max-width: 760px) {
+        body {
+            margin: 0;
+            background: none;
+        }
+
+        .schedule {
+            display: none;
+        }
+
+        .player {
+            width: 100%;
+            height: 100%;
+        }
+
+        div.player {
+            display: none;
+        }
+    }
+
+    #tbg {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url(logo-new-toggle@2x_52c2068.png) no-repeat fixed 20px 20px;
+        background-size: 12em;
+        z-index: -1;
+    }
+    </style>
 </head>
 
 <body>
-<div style="margin:0 auto;width:0px;height:0px;overflow:hidden;"><img src="http://pubstatic.b0.upaiyun.com/videojs/meizu/poster.jpg" width="700"></div>
-<div id="inner"></div><div id="tbg"></div><script>
-function f(){
-var w = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-var h = (window.innerHeight > 0) ? window.innerHeight : screen.height;
+<div style="margin:0 auto;width:0px;height:0px;overflow:hidden;"><img
+        src="http://pubstatic.b0.upaiyun.com/videojs/meizu/poster.jpg" width="700"></div>
+<div id="inner"></div>
+<div id="tbg"></div>
+<script>
+    function f() {
+        var w = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        var h = (window.innerHeight > 0) ? window.innerHeight : screen.height;
 
-var s='<style>@media (max-width: 460px) {body{margin:0}iframe.player{position:fixed;}iframe.player,div.player{display:block;margin:0;width:100%;height:'+parseInt(w*0.5625)+'px}.schedule {display: block;width:'+w+'px}}  @media (min-width: 560px) and (max-width: 760px) {iframe.player,div.player{position:static;height:'+parseInt(w*0.5625)+'px;}}</style>';
+        var s = '<style>@media (max-width: 460px) {body{margin:0}iframe.player{position:fixed;}iframe.player,div.player{display:block;margin:0;width:100%;height:' + parseInt(w * 0.5625) + 'px}.schedule {display: block;width:' + w + 'px}}  @media (min-width: 560px) and (max-width: 760px) {iframe.player,div.player{position:static;height:' + parseInt(w * 0.5625) + 'px;}}</style>';
 
-document.getElementById('inner').innerHTML = s;
-}f();window.addEventListener('resize', function(){setTimeout(50,f)});
+        document.getElementById('inner').innerHTML = s;
+    }
+    f();
+    window.addEventListener('resize', function () {
+      setTimeout(50, f)
+    });
 
-var ow=(window.innerWidth > 0) ? window.innerWidth : screen.width;
-setInterval(function(){var o=(window.innerWidth > 0) ? window.innerWidth : screen.width;if(o != ow){ow=o;f();}}, 100);
+    var ow = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+    setInterval(function () {
+        var o = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+        if (o != ow) {
+            ow = o;
+            f();
+        }
+    }, 100);
 
 </script>
 
-<iframe src="hd3.html?poster=http://cimg2.res.meizu.com/www/201610/1476948350243.jpg&rtmp=rtmp://bg-test-play.live.bigertech.com/test/live&hls=http://bg-test-play.live.bigertech.com/test/live.m3u8" class="player" style="border:0;" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no"></iframe>
-
+<iframe
+        src="hd3.html?poster=http://cimg2.res.meizu.com/www/201610/1476948350243.jpg&rtmp=rtmp://bg-test-play.live.bigertech.com/test/live-360w&hls=http://bg-test-play.live.bigertech.com/test/live-360w.m3u8"
+        class="player" style="border:0;" frameborder="0" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" scrolling="no">
+</iframe>
 </body>
 </html>
