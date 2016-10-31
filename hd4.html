@@ -2,136 +2,68 @@
 <html lang="zh-CN">
 
 <head>
-  <meta charset="utf-8"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>魅族直播</title>
-  <meta name="keywords" content="魅族直播">
-  <meta name="description" content="魅族直播">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel='stylesheet prefetch' href='./video-js.css'>
-  <link rel='stylesheet prefetch' href='./up-videojs.css'>
-  <link rel='stylesheet prefetch' href='./assets/js/videojs-resolution-switcher/videojs-resolution-switcher.css'>
-
-
-  <script src='./videojs-ie8.min.js'></script>
-  <script src='./video-min.js'></script>
-  <script src="./videojs-contrib-hls.min.js"></script>
-  <script src="./assets/js/videojs-resolution-switcher/videojs-resolution-switcher.js"></script>
-
-  <script>
-    videojs.options.flash.swf = "./video-js.swf"
-  </script>
-  <style>
-    .vjs-polyzor-skin .vjs-big-play-button {
-      color: #fff;
-      top: 45%;
-    }
-
-    .vjs-polyzor-skin .vjs-big-play-button:hover {
-      color: #fff;
-    }
-
-    /*video::-webkit-media-controls-start-playback-button {display: none !important}
-video::-webkit-media-controls{display:none !important;}*/
-  </style>
-  <script>
-    function _get(name, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[\[\]]/g, "\\$&");
-      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-              results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return null;
-      return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
-    var rtmp_url = _get('rtmp');
-    var hls_url = _get('hls');
-    var mp4_url = _get('mp4');
-    var webm_url = _get('webm');
-
-    if (rtmp_url == null && hls_url == null && mp4_url == null && webm_url == null) {
-      if (!rtmp_url || !hls_url) {
-        console.error('No rtmp_url and hls_url found!')
-      }
-    }
-
-    if (_get('title')) {
-      document.title = _get('title');
-    }
-  </script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>魅族直播</title>
+    <meta name="keywords" content="魅族直播">
+    <meta name="description" content="魅族直播">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel='stylesheet prefetch' href='./video-js.css'>
+    <link rel='stylesheet prefetch' href='./assets/js/videojs-resolution-switcher/videojs-resolution-switcher.css'>
 </head>
 
 <body>
-<div style="margin:0 auto;width:0px;height:0px;overflow:hidden;">
-  <img src="http://pubstatic.b0.upaiyun.com/ego-live.jpg" width="700">
-</div>
-<script>
-  if (_get('play-button-color')) {
-    var css = '.vjs-polyzor-skin .vjs-big-play-button {color: #' + _get('play-button-color') + ';top: ' + (_get('play-button-top') ? _get('play-button-top') : '50') + '%;}.vjs-polyzor-skin .vjs-big-play-button:hover {color: #' + _get('play-button-color') + ';}',
-            head = document.head || document.getElementsByTagName('head')[0],
-            style = document.createElement('style');
+    <div style="margin:0 auto;width:0px;height:0px;overflow:hidden;">
+        <img src="http://pubstatic.b0.upaiyun.com/ego-live.jpg" width="700">
+    </div>
+    <video id='video' class="video-js vjs-default-skin" width="640" height="320"></video>
 
-    style.type = 'text/css';
-    if (style.styleSheet) {
-      style.styleSheet.cssText = css;
-    } else {
-      style.appendChild(document.createTextNode(css));
-    }
-    head.appendChild(style);
-  }
-  var s = '<video id="my-video" class="video-js vjs-polyzor-skin" webkit-playsinline preload="auto" width="640" height="480" ' +
-          'controls ' + (_get('poster') != null ? 'poster="' + _get('poster') + '" ' : '') + 'data-setup="">';
+    <script src='./videojs-ie8.min.js'></script>
+    <script src='./video-min.js'></script>
+    <script src="./videojs-contrib-hls.min.js"></script>
+    <script src="./assets/js/videojs-resolution-switcher/videojs-resolution-switcher.js"></script>
 
-  if (rtmp_url != null) s += '<source src="' + rtmp_url + '" type="rtmp/flv">';
-  if (hls_url != null) s += '<source src="' + hls_url + '" type="application/x-mpegURL">';
-  if (mp4_url != null) s += '<source src="' + mp4_url + '" type="video/mp4">';
-  if (webm_url != null) s += '<source src="' + webm_url + '" type="video/webm">';
-
-  s += '</video>';
-  document.getElementsByTagName('body')[0].innerHTML = s;
-
-  var sources = [
-    {
-      src: 'rtmp://bg-test-play.live.bigertech.com/test/live',
-      type: 'rtmp/flv',
-      label: '1080w'
-    },
-    {
-      src: 'rtmp://bg-test-play.live.bigertech.com/test/live',
-      type: 'rtmp/flv',
-      label: '720w'
-    },
-    {
-      src: 'rtmp://bg-test-play.live.bigertech.com/test/live',
-      type: 'rtmp/flv',
-      label: '360w'
-    }
-  ];
-  var player = videojs("my-video",  {
-            techOrder: ["html5", "flash"],
+    <script>
+        videojs.options.flash.swf = "./video-js.swf"
+        var sources = [{
+            src: 'rtmp=rtmp://player.live.meizu.cn/launch/1031-720w',
+            type: 'rtmp/flv',
+            label: '1080w'
+        }, {
+            src: 'rtmp=rtmp://player.live.meizu.cn/launch/1031-720w',
+            type: 'rtmp/flv',
+            label: '720w'
+        }, {
+            src: 'rtmp=rtmp://player.live.meizu.cn/launch/1031-720w',
+            type: 'rtmp/flv',
+            label: '360w'
+        }];
+        videojs("video", {
+            techOrder: ["flash", "html5"],
             autoplay: true,
             timeDivider: false,
             controlBar: {
-              progressControl: false
+                progressControl: false
             },
-            label: 720,
+            //label: '360w',
             plugins: {
-              videoJsResolutionSwitcher: {
-                default: 'high',
-                dynamicLabel: true
-              }
+                videoJsResolutionSwitcher: {
+                    default: 'high',
+                    dynamicLabel: true
+                }
             }
-          }, function () {
+        }, function() {
+            console.log(this);
+            var player = this;
             // Add dynamically sources via updateSrc method
             player.updateSrc(sources);
 
-            player.on('resolutionchange', function () {
-              console.info('Source changed to %s', player.currentResolution())
+            player.on('resolutionchange', function() {
+                console.info('Source changed to %s', player.currentResolution())
             })
 
-          }
-  );
-</script>
+        });
+    </script>
 </body>
 
 </html>
